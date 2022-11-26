@@ -40,7 +40,7 @@ export default {
       name: 'technologies',
       title: 'Technologies',
       type: 'array',
-      of: [{ type: 'reference', to { type: 'skill' } }],
+      of: [{ type: 'reference', to: { type: 'skill' } }],
     },
     {
       name: 'points',
