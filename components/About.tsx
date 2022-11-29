@@ -1,9 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { PageInfo } from '../typings';
+import { urlFor } from '../sanity';
 
-type Props = {}
+type Props = {
+    pageInfo: PageInfo
+}
 
-export default function About({ }: Props) {
+export default function About({ pageInfo }: Props) {
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -25,15 +29,15 @@ export default function About({ }: Props) {
             }}
             whileInView={{ opacity: 1, x:0 }}
             viewport={{ once:true }}
-            src='https://scontent-iad3-2.xx.fbcdn.net/v/t1.6435-9/70846127_10156763748913262_6576698582152249344_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=174925&_nc_ohc=hH3urO7FA3wAX88yc1u&tn=8fiOroPy_a55kQeh&_nc_ht=scontent-iad3-2.xx&oh=00_AfCooMHuiktXPYwh-g3G3kewo16B-qcgZ8-xqoYttyyKuw&oe=63A21720'
-            className='-mb-20 md md:mb-0 flex-shrink-0 w-56 h56 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]'
+            src={urlFor(pageInfo.profilePic).url()}
+            className='-mb-20 md:mb-0 flex-shrink-0 w-56 h56 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]'
             />
 
             <div className='space-y-10 px-0 md:px-10'>
                 <h4 className='text-4xl font-semibold'> Here is <span className='underline decoration-[#F7Ab0A]/50'>some</span> background
             </h4>
             <p className='text-base'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam error eos, hic facere sit quibusdam natus cupiditate ut corrupti numquam sed autem eum nesciunt dolor expedita consectetur ullam? Eaque, eum!
+                {pageInfo.}
             </p>
             </div>
         </motion.div>
