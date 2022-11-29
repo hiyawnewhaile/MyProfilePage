@@ -4,7 +4,7 @@ import { PageInfo } from '../typings';
 import { urlFor } from '../sanity';
 
 type Props = {
-    pageInfo: PageInfo
+    pageInfo: PageInfo;
 }
 
 export default function About({ pageInfo }: Props) {
@@ -36,9 +36,7 @@ export default function About({ pageInfo }: Props) {
             <div className='space-y-10 px-0 md:px-10'>
                 <h4 className='text-4xl font-semibold'> Here is <span className='underline decoration-[#F7Ab0A]/50'>some</span> background
             </h4>
-            <p className='text-base'>
-                {pageInfo.}
-            </p>
+            <p className='text-base'> {pageInfo.backgroundInformation} </p>
             </div>
         </motion.div>
     )

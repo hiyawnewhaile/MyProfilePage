@@ -9,7 +9,7 @@ import { urlFor } from "../sanity";
 
 
 type Props = {
-    pageInfo: PageInfo
+    pageInfo: PageInfo;
 };
 
 export default function Hero({ pageInfo }: Props) {

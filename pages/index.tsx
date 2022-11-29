@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -14,6 +14,7 @@ import { fetchPageInfo } from '../utils/fetchPageInfo'
 import { fetchProjects } from '../utils/fetchProjects'
 import { fetchSkills } from '../utils/fetchSkills'
 import { fetchSocial } from '../utils/fetchSocials'
+import { urlFor } from '../sanity';
 
 type Props = {
   pageInfo: PageInfo;
@@ -27,7 +28,7 @@ const Home = ({ projects, skills, pageInfo, experiences, socials }: Props) => {
   return (
     <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-green-600/80'>
       <Head>
-        <title>Hiyaw's Portfolio</title>
+        <title>{pageInfo?.name} - Portfolio</title>
       </Head>
 
       <Header socials={socials}/>
@@ -41,16 +42,16 @@ const Home = ({ projects, skills, pageInfo, experiences, socials }: Props) => {
       </section>
 
       <section id='experience' className='snap-center'>
-        <WorkExperience />
+        <WorkExperience experiences={experiences}/>
       </section>
 
       <section id='skills' className='snap-start'>
-        <Skills />
+        <Skills skills={skills}/>
 
       </section>
 
       <section id='projects' className='snap-start'>
-        <Projects />
+        <Projects projects={projects}/>
       </section>
 
       <section id='contact' className='snap-start'>
@@ -62,7 +63,7 @@ const Home = ({ projects, skills, pageInfo, experiences, socials }: Props) => {
         <div className='flex items-center justify-center'>
           <img
           className='h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer'
-          src="" alt="" />
+          src={urlFor(pageInfo?.heroImage).url()} alt="" />
         </div>
       </footer>
     </Link>
